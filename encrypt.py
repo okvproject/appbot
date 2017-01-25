@@ -64,7 +64,7 @@ def decrypt(message):
         elif ord(i)==32:
             n=32
         else:
-            #en_symbol = 'Строка содержир недопустимые символы!'
+            en_symbol = 'Строка содержир недопустимые символы!'
             break
         en_symbol += chr(n)
     return en_symbol
