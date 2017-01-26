@@ -9,12 +9,3 @@ def upload(file):
     f = open('working-draft.txt', 'rb')
     response = client.put_file('/magnum.txt', f)
 
-
-'''folder_metadata = client.metadata('/')
-
-
-f, metadata = client.get_file_and_metadata('/magnum-opus.txt')
-out = open('magnum-opus.txt', 'wb')
-out.write(f.read())
-out.close()
-#print(metadata)'''

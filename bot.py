@@ -2,8 +2,14 @@ import config
 import telebot
 import utils
 from encrypt import enctypt,decrypt,get_key
+from SQLighter import  SQLighter
 
 bot = telebot.TeleBot(config.token)
+
+def insert_to_db(message):
+    db = SQLighter()
+    db.insert_inf(message)
+    db.close()
 
 @bot.message_handler(commands=['code'])
 def markup_code(message):
@@ -13,6 +19,7 @@ def markup_code(message):
     markup.add('Расшифровать')
     bot.send_message(message.chat.id,'Действие',reply_markup=markup)
     utils.set_active_user(message.chat.id,'active_command')
+    insert_to_db(message)
 
 @bot.message_handler(content_types=["text"])
 def active_caesar(message):
