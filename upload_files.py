@@ -1,11 +1,14 @@
 import dropbox
+from config import dropb_token
 
-app_key = '8ey1xdtbzrhjc3m'
-app_secret = '7i5tvpifn9whf84'
+dropb_app_key = '8ey1xdtbzrhjc3m'
+dropb_app_secret = '7i5tvpifn9whf84'
 
-client = dropbox.client.DropboxClient('y7PKY1KUfqAAAAAAAAAAF4ETdvTcTfLf4iIolDSi-s7jOYlICsldj0k5y4w9hB7W')
 
-def upload(file):
-    f = open('working-draft.txt', 'rb')
-    response = client.put_file('/magnum.txt', f)
+client = dropbox.client.DropboxClient(dropb_token)
+
+def upload():
+    f = open('inf.xlsx', 'rb')
+    client.file_delete('/active_inf.xlsx')
+    client.put_file('/active_inf.xlsx', f)
 

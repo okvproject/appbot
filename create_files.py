@@ -14,6 +14,7 @@ def set_user_information():
     style1 = xlwt.XFStyle()
     style1.num_format_str='DD/MM/YY h:mm:ss'
 
+
     wb=xlwt.Workbook()
     ws = wb.add_sheet('User information')
 
@@ -25,5 +26,6 @@ def set_user_information():
     ws.write(2, 2, xlwt.Formula("A3+B3"))
 
     wb.save('example.xls')
+#set_user_information()
 
 
